@@ -4,7 +4,7 @@ namespace KingStarter\LaravelSaml;
 
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Application as LaravelApplication;
-use Config;
+use Illuminate\Support\Facades\Config;
 use KingStarter\LaravelSaml\Console\EncodeAssertionUrlCommand;
 
 class LaravelSamlServiceProvider extends ServiceProvider
@@ -43,7 +43,7 @@ class LaravelSamlServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__ . '/config/saml.php' => config_path('saml.php'),
             ], 'saml_config');
-            
+
             // Create storage/saml directory
             if (!file_exists(storage_path() . "/saml/idp")) {
                 mkdir(storage_path() . "/saml/idp", 0755, true);
